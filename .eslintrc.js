@@ -1,3 +1,8 @@
 module.exports = {
-    "extends": "standard"
+    "extends": "standard",
+    "env": {
+        "jest": true,
+        "browser": true,
+        "node": true
+    }
 };
