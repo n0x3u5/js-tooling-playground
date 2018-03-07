@@ -1,12 +1,12 @@
-import Nemo from './nemo';
+import Nemo from './nemo'
 
 export default class Chemo {
   constructor () {
-    this.name = 'Chemo';
-    this.pet = new Nemo();
+    this.name = 'Chemo'
+    this.pet = new Nemo()
   }
 
   getName () {
-    return this.name;
+    return this.name
   }
 }

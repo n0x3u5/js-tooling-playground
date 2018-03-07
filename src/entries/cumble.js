@@ -1,6 +1,6 @@
-import Demo from './demo';
-import Chemo from './chemo';
+import Demo from './demo'
+import Chemo from './chemo'
 
-Demo.add(Chemo);
+Demo.add(Chemo)
 
-export default Demo;
+export default Demo
