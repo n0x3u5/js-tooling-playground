@@ -2,19 +2,31 @@ const store = {}
 
 export default class Demo {
   static add (thing) {
-    store.thing = thing
+    if (thing != null) store.thing = thing
   }
 
   static get (thing) {
-    return store.thing
+    if (thing != null) return store.thing
   }
 
   constructor () {
     this.name = 'Demo'
   }
 
+  getName () {
+    return this.name
+  }
+
   getNameOf (thing) {
     let Thing = Demo.get(thing)
-    return new Thing().getName()
+
+    if (Thing) {
+      if (Thing.prototype) {
+        let thing = new Thing()
+        return thing.getName()
+      } else {
+        return thing.toString()
+      }
+    }
   }
 }

@@ -1,5 +1,5 @@
-import Demo from './demo'
-import Chemo from './chemo'
+import Demo from '../modules/exposed/demo'
+import Chemo from '../modules/chemo'
 
 Demo.add(Chemo)
 

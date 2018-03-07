@@ -1,4 +1,4 @@
-import Nemo from './nemo'
+import Nemo from './shared/nemo'
 
 export default class Chemo {
   constructor () {
@@ -7,6 +7,14 @@ export default class Chemo {
   }
 
   getName () {
+    return this.name
+  }
+
+  getPet () {
+    return this.pet
+  }
+
+  toString () {
     return this.name
   }
 }
