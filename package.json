@@ -22,10 +22,8 @@
     "url": "https://github.com/n0x3u5/js-tooling-playground/issues"
   },
   "homepage": "https://github.com/n0x3u5/js-tooling-playground#readme",
-  "dependencies": {
-    "eslint": "^4.18.2"
-  },
   "devDependencies": {
+    "eslint": "^4.18.2",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-node": "^6.0.1",
