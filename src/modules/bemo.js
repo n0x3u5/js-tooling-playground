@@ -6,10 +6,6 @@ export default class Bemo {
     this.pet = new Nemo()
   }
 
-  getName () {
-    return this.name
-  }
-
   getPet () {
     return this.pet
   }

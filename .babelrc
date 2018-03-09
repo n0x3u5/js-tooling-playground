@@ -1,5 +1,15 @@
 {
-  "presets": [
-    "env"
-  ]
+  "plugins": [
+    ["syntax-dynamic-import"]
+  ],
+  "presets": [["env", {
+    "targets": {
+      "browsers": ["> 0.1%"]
+    }
+  }]],
+  "env": {
+    "test": {
+      "plugins": ["dynamic-import-node"]
+    }
+  }
 }

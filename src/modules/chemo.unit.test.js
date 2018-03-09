@@ -4,9 +4,9 @@ describe('Chemo should', () => {
   let chemo = new Chemo()
 
   test('be named Chemo', () => {
-    expect(chemo.getName()).toBe('Chemo')
+    expect(chemo + '').toBe('Chemo')
   })
   test('have Nemo as a pet', () => {
-    expect(chemo.getPet().toString()).toBe('Nemo')
+    expect(chemo.getPet() + '').toBe('Nemo')
   })
 })

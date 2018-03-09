@@ -1,32 +1,55 @@
+import mergeDeepRight from 'ramda/src/mergeDeepLeft'
+
+const DEFAULT_OPTS = { name: 'bemo' }
+const unsupportedEmo = () => { document.body.innerHTML = 'Unsupported Emo!' }
+const supportedEmo = (emoPayload) => {
+  const Emo = emoPayload.default ? emoPayload.default : emoPayload
+  const emo = new Emo()
+  document.body.innerHTML = emo
+}
 const store = {}
 
 export default class Demo {
-  static add (thing) {
-    if (thing != null) store.thing = thing
-  }
-
-  static get (thing) {
-    if (thing != null) return store.thing
-  }
-
-  constructor () {
+  constructor (opts = {}) {
+    this.opts = mergeDeepRight(opts, DEFAULT_OPTS)
     this.name = 'Demo'
   }
 
-  getName () {
-    return this.name
+  static inject (thing) {
+    if (thing != null) { store[thing] = thing }
   }
 
-  getNameOf (thing) {
-    let Thing = Demo.get(thing)
+  static extract (thing) {
+    if (thing != null) { return store[thing] }
+  }
 
-    if (Thing) {
-      if (Thing.prototype) {
-        let thing = new Thing()
-        return thing.getName()
+  setBase (basePath) {
+    // eslint-disable-next-line
+    __webpack_public_path__ = basePath;
+  }
+
+  render () {
+    let Emo = Demo.extract(this.opts.name)
+
+    if (Emo) {
+      supportedEmo(Emo)
+    } else {
+      if (this.opts.name === 'bemo') {
+          import(/* webpackChunkName: "demo.bemo" */ '../bemo')
+            .then(supportedEmo)
+            .catch(unsupportedEmo)
+      } else if (this.opts.name === 'chemo') {
+        import(/* webpackChunkName: "demo.chemo" */ '../chemo')
+          .then(supportedEmo)
+          .catch(unsupportedEmo)
       } else {
-        return thing.toString()
+        unsupportedEmo()
       }
     }
+    document.body.innerHTML = 'Loading emo...'
+  }
+
+  toString () {
+    return this.name
   }
 }

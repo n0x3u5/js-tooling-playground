@@ -4,6 +4,9 @@
   "description": "Exploring JavaScript tools",
   "main": "src/index.js",
   "scripts": {
+    "start": "webpack-dev-server",
+    "watch": "rm -rf dist && webpack --watch",
+    "build": "rm -rf dist && webpack",
     "test": "eslint src && jest",
     "precommit": "npm test",
     "prepush": "npm test"
@@ -23,6 +26,15 @@
   },
   "homepage": "https://github.com/n0x3u5/js-tooling-playground#readme",
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.2",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-dynamic-import-node": "^1.2.0",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-es3-member-expression-literals": "^6.22.0",
+    "babel-plugin-transform-es3-property-literals": "^6.22.0",
+    "babel-plugin-transform-proto-to-assign": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
     "eslint": "^4.18.2",
     "eslint-config-standard": "^11.0.0",
@@ -31,6 +43,13 @@
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1",
     "husky": "^0.14.3",
-    "jest": "^22.4.2"
+    "jest": "^22.4.2",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.10",
+    "webpack-dev-server": "^3.1.0"
+  },
+  "dependencies": {
+    "promise-polyfill": "^7.1.0",
+    "ramda": "^0.25.0"
   }
 }
