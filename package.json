@@ -7,6 +7,7 @@
     "start": "webpack-dev-server",
     "watch": "rm -rf dist && webpack --watch",
     "build": "rm -rf dist && webpack",
+    "build:user": "rm -rf user-dist && rollup -c",
     "test": "eslint src && jest",
     "precommit": "npm test",
     "prepush": "npm test"
