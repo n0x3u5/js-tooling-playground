@@ -5,11 +5,13 @@
   "presets": [["env", {
     "targets": {
       "browsers": ["> 0.1%"]
-    }
+    },
+    "modules": false
   }]],
   "env": {
     "test": {
-      "plugins": ["dynamic-import-node"]
+      "plugins": ["dynamic-import-node"],
+      "presets": "env"
     }
   }
 }
