@@ -20,12 +20,6 @@ module.exports = {
       loader: 'babel-loader'
     }]
   },
-  optimization: {
-    splitChunks: {
-      name: 'demo.common',
-      minSize: 1
-    }
-  },
   plugins: [
     new webpack.optimize.ModuleConcatenationPlugin()
   ],
