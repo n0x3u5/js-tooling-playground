@@ -102,7 +102,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 				if (__webpack_require__.nc) {
 /******/ 					script.setAttribute("nonce", __webpack_require__.nc);
 /******/ 				}
-/******/ 				script.src = __webpack_require__.p + "" + ({"1":"demo.bemo","2":"demo.chemo","3":"demo.common"}[chunkId]||chunkId) + ".js";
+/******/ 				script.src = __webpack_require__.p + "" + ({"1":"demo.bemo","2":"demo.chemo"}[chunkId]||chunkId) + ".js";
 /******/ 				var timeout = setTimeout(function(){
 /******/ 					onScriptComplete({ type: 'timeout', target: script });
 /******/ 				}, 120000);
@@ -179,182 +179,22 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+/******/ ({
+
+/***/ 3:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _mergeDeepLeft = __webpack_require__(1);
-
-var _mergeDeepLeft2 = _interopRequireDefault(_mergeDeepLeft);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var DEFAULT_OPTS = { name: 'bemo' };
-var unsupportedEmo = function unsupportedEmo() {
-  document.body.innerHTML = 'Unsupported Emo!';
-};
-var supportedEmo = function supportedEmo(emoPayload) {
-  var Emo = emoPayload.default ? emoPayload.default : emoPayload;
-  var emo = new Emo();
-  document.body.innerHTML = emo;
-};
-var store = {};
-
-var Demo = function () {
-  function Demo() {
-    var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-    _classCallCheck(this, Demo);
-
-    this.opts = (0, _mergeDeepLeft2.default)(opts, DEFAULT_OPTS);
-    this.name = 'Demo';
-  }
-
-  _createClass(Demo, [{
-    key: 'setBase',
-    value: function setBase(basePath) {
-      // eslint-disable-next-line
-      __webpack_require__.p = basePath;
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var Emo = Demo.extract(this.opts.name);
-
-      if (Emo) {
-        supportedEmo(Emo);
-      } else {
-        if (this.opts.name === 'bemo') {
-          Promise.all(/* import() | demo.bemo */[__webpack_require__.e(3), __webpack_require__.e(1)]).then(function() { var module = __webpack_require__(10); return typeof module === "object" && module && module.__esModule ? module : Object.assign({/* fake namespace object */}, typeof module === "object" && module, { "default": module }); }).then(supportedEmo).catch(unsupportedEmo);
-        } else if (this.opts.name === 'chemo') {
-          Promise.all(/* import() | demo.chemo */[__webpack_require__.e(3), __webpack_require__.e(2)]).then(function() { var module = __webpack_require__(12); return typeof module === "object" && module && module.__esModule ? module : Object.assign({/* fake namespace object */}, typeof module === "object" && module, { "default": module }); }).then(supportedEmo).catch(unsupportedEmo);
-        } else {
-          unsupportedEmo();
-        }
-      }
-      document.body.innerHTML = 'Loading emo...';
-    }
-  }, {
-    key: 'toString',
-    value: function toString() {
-      return this.name;
-    }
-  }], [{
-    key: 'inject',
-    value: function inject(thing) {
-      if (thing != null) {
-        store[thing] = thing;
-      }
-    }
-  }, {
-    key: 'extract',
-    value: function extract(thing) {
-      if (thing != null) {
-        return store[thing];
-      }
-    }
-  }]);
-
-  return Demo;
-}();
-
-exports.default = Demo;
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var _curry2 = /*#__PURE__*/__webpack_require__(2);
-
-var mergeDeepWithKey = /*#__PURE__*/__webpack_require__(5);
-
-/**
- * Creates a new object with the own properties of the first object merged with
- * the own properties of the second object. If a key exists in both objects:
- * - and both values are objects, the two values will be recursively merged
- * - otherwise the value from the first object will be used.
- *
- * @func
- * @memberOf R
- * @since v0.24.0
- * @category Object
- * @sig {a} -> {a} -> {a}
- * @param {Object} lObj
- * @param {Object} rObj
- * @return {Object}
- * @see R.merge, R.mergeDeepRight, R.mergeDeepWith, R.mergeDeepWithKey
- * @example
- *
- *      R.mergeDeepLeft({ name: 'fred', age: 10, contact: { email: 'moo@example.com' }},
- *                      { age: 40, contact: { email: 'baa@example.com' }});
- *      //=> { name: 'fred', age: 10, contact: { email: 'moo@example.com' }}
- */
-
-
-var mergeDeepLeft = /*#__PURE__*/_curry2(function mergeDeepLeft(lObj, rObj) {
-  return mergeDeepWithKey(function (k, lVal, rVal) {
-    return lVal;
-  }, lObj, rObj);
-});
-module.exports = mergeDeepLeft;
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var _curry1 = /*#__PURE__*/__webpack_require__(3);
-
-var _isPlaceholder = /*#__PURE__*/__webpack_require__(4);
-
-/**
- * Optimized internal two-arity curry function.
- *
- * @private
- * @category Function
- * @param {Function} fn The function to curry.
- * @return {Function} The curried function.
- */
-
-
-function _curry2(fn) {
-  return function f2(a, b) {
-    switch (arguments.length) {
-      case 0:
-        return f2;
-      case 1:
-        return _isPlaceholder(a) ? f2 : _curry1(function (_b) {
-          return fn(a, _b);
-        });
-      default:
-        return _isPlaceholder(a) && _isPlaceholder(b) ? f2 : _isPlaceholder(a) ? _curry1(function (_a) {
-          return fn(_a, b);
-        }) : _isPlaceholder(b) ? _curry1(function (_b) {
-          return fn(a, _b);
-        }) : fn(a, b);
-    }
-  };
+// CONCATENATED MODULE: ./node_modules/ramda/es/internal/_isPlaceholder.js
+function _isPlaceholder(a) {
+       return a != null && typeof a === 'object' && a['@@functional/placeholder'] === true;
 }
-module.exports = _curry2;
+// CONCATENATED MODULE: ./node_modules/ramda/es/internal/_curry1.js
 
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var _isPlaceholder = /*#__PURE__*/__webpack_require__(4);
 
 /**
  * Optimized internal one-arity curry function.
@@ -364,9 +204,7 @@ var _isPlaceholder = /*#__PURE__*/__webpack_require__(4);
  * @param {Function} fn The function to curry.
  * @return {Function} The curried function.
  */
-
-
-function _curry1(fn) {
+function _curry1_curry1(fn) {
   return function f1(a) {
     if (arguments.length === 0 || _isPlaceholder(a)) {
       return f1;
@@ -375,26 +213,143 @@ function _curry1(fn) {
     }
   };
 }
-module.exports = _curry1;
+// CONCATENATED MODULE: ./node_modules/ramda/es/internal/_curry2.js
 
-/***/ }),
-/* 4 */
-/***/ (function(module, exports) {
 
-function _isPlaceholder(a) {
-       return a != null && typeof a === 'object' && a['@@functional/placeholder'] === true;
+
+/**
+ * Optimized internal two-arity curry function.
+ *
+ * @private
+ * @category Function
+ * @param {Function} fn The function to curry.
+ * @return {Function} The curried function.
+ */
+function _curry2_curry2(fn) {
+  return function f2(a, b) {
+    switch (arguments.length) {
+      case 0:
+        return f2;
+      case 1:
+        return _isPlaceholder(a) ? f2 : _curry1_curry1(function (_b) {
+          return fn(a, _b);
+        });
+      default:
+        return _isPlaceholder(a) && _isPlaceholder(b) ? f2 : _isPlaceholder(a) ? _curry1_curry1(function (_a) {
+          return fn(_a, b);
+        }) : _isPlaceholder(b) ? _curry1_curry1(function (_b) {
+          return fn(a, _b);
+        }) : fn(a, b);
+    }
+  };
 }
-module.exports = _isPlaceholder;
+// CONCATENATED MODULE: ./node_modules/ramda/es/internal/_curry3.js
 
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
 
-var _curry3 = /*#__PURE__*/__webpack_require__(6);
 
-var _isObject = /*#__PURE__*/__webpack_require__(7);
 
-var mergeWithKey = /*#__PURE__*/__webpack_require__(8);
+/**
+ * Optimized internal three-arity curry function.
+ *
+ * @private
+ * @category Function
+ * @param {Function} fn The function to curry.
+ * @return {Function} The curried function.
+ */
+function _curry3_curry3(fn) {
+  return function f3(a, b, c) {
+    switch (arguments.length) {
+      case 0:
+        return f3;
+      case 1:
+        return _isPlaceholder(a) ? f3 : _curry2_curry2(function (_b, _c) {
+          return fn(a, _b, _c);
+        });
+      case 2:
+        return _isPlaceholder(a) && _isPlaceholder(b) ? f3 : _isPlaceholder(a) ? _curry2_curry2(function (_a, _c) {
+          return fn(_a, b, _c);
+        }) : _isPlaceholder(b) ? _curry2_curry2(function (_b, _c) {
+          return fn(a, _b, _c);
+        }) : _curry1_curry1(function (_c) {
+          return fn(a, b, _c);
+        });
+      default:
+        return _isPlaceholder(a) && _isPlaceholder(b) && _isPlaceholder(c) ? f3 : _isPlaceholder(a) && _isPlaceholder(b) ? _curry2_curry2(function (_a, _b) {
+          return fn(_a, _b, c);
+        }) : _isPlaceholder(a) && _isPlaceholder(c) ? _curry2_curry2(function (_a, _c) {
+          return fn(_a, b, _c);
+        }) : _isPlaceholder(b) && _isPlaceholder(c) ? _curry2_curry2(function (_b, _c) {
+          return fn(a, _b, _c);
+        }) : _isPlaceholder(a) ? _curry1_curry1(function (_a) {
+          return fn(_a, b, c);
+        }) : _isPlaceholder(b) ? _curry1_curry1(function (_b) {
+          return fn(a, _b, c);
+        }) : _isPlaceholder(c) ? _curry1_curry1(function (_c) {
+          return fn(a, b, _c);
+        }) : fn(a, b, c);
+    }
+  };
+}
+// CONCATENATED MODULE: ./node_modules/ramda/es/internal/_isObject.js
+function _isObject(x) {
+  return Object.prototype.toString.call(x) === '[object Object]';
+}
+// CONCATENATED MODULE: ./node_modules/ramda/es/internal/_has.js
+function _has(prop, obj) {
+  return Object.prototype.hasOwnProperty.call(obj, prop);
+}
+// CONCATENATED MODULE: ./node_modules/ramda/es/mergeWithKey.js
+
+
+
+/**
+ * Creates a new object with the own properties of the two provided objects. If
+ * a key exists in both objects, the provided function is applied to the key
+ * and the values associated with the key in each object, with the result being
+ * used as the value associated with the key in the returned object.
+ *
+ * @func
+ * @memberOf R
+ * @since v0.19.0
+ * @category Object
+ * @sig ((String, a, a) -> a) -> {a} -> {a} -> {a}
+ * @param {Function} fn
+ * @param {Object} l
+ * @param {Object} r
+ * @return {Object}
+ * @see R.mergeDeepWithKey, R.merge, R.mergeWith
+ * @example
+ *
+ *      let concatValues = (k, l, r) => k == 'values' ? R.concat(l, r) : r
+ *      R.mergeWithKey(concatValues,
+ *                     { a: true, thing: 'foo', values: [10, 20] },
+ *                     { b: true, thing: 'bar', values: [15, 35] });
+ *      //=> { a: true, b: true, thing: 'bar', values: [10, 20, 15, 35] }
+ * @symb R.mergeWithKey(f, { x: 1, y: 2 }, { y: 5, z: 3 }) = { x: 1, y: f('y', 2, 5), z: 3 }
+ */
+var mergeWithKey_mergeWithKey = /*#__PURE__*/_curry3_curry3(function mergeWithKey(fn, l, r) {
+  var result = {};
+  var k;
+
+  for (k in l) {
+    if (_has(k, l)) {
+      result[k] = _has(k, r) ? fn(k, l[k], r[k]) : l[k];
+    }
+  }
+
+  for (k in r) {
+    if (_has(k, r) && !_has(k, result)) {
+      result[k] = r[k];
+    }
+  }
+
+  return result;
+});
+/* harmony default export */ var es_mergeWithKey = (mergeWithKey_mergeWithKey);
+// CONCATENATED MODULE: ./node_modules/ramda/es/mergeDeepWithKey.js
+
+
+
 
 /**
  * Creates a new object with the own properties of the two provided objects.
@@ -424,10 +379,8 @@ var mergeWithKey = /*#__PURE__*/__webpack_require__(8);
  *                         { b: true, c: { thing: 'bar', values: [15, 35] }});
  *      //=> { a: true, b: true, c: { thing: 'bar', values: [10, 20, 15, 35] }}
  */
-
-
-var mergeDeepWithKey = /*#__PURE__*/_curry3(function mergeDeepWithKey(fn, lObj, rObj) {
-  return mergeWithKey(function (k, lVal, rVal) {
+var mergeDeepWithKey_mergeDeepWithKey = /*#__PURE__*/_curry3_curry3(function mergeDeepWithKey(fn, lObj, rObj) {
+  return es_mergeWithKey(function (k, lVal, rVal) {
     if (_isObject(lVal) && _isObject(rVal)) {
       return mergeDeepWithKey(fn, lVal, rVal);
     } else {
@@ -435,137 +388,117 @@ var mergeDeepWithKey = /*#__PURE__*/_curry3(function mergeDeepWithKey(fn, lObj, 
     }
   }, lObj, rObj);
 });
-module.exports = mergeDeepWithKey;
+/* harmony default export */ var es_mergeDeepWithKey = (mergeDeepWithKey_mergeDeepWithKey);
+// CONCATENATED MODULE: ./node_modules/ramda/es/mergeDeepLeft.js
 
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
 
-var _curry1 = /*#__PURE__*/__webpack_require__(3);
-
-var _curry2 = /*#__PURE__*/__webpack_require__(2);
-
-var _isPlaceholder = /*#__PURE__*/__webpack_require__(4);
 
 /**
- * Optimized internal three-arity curry function.
- *
- * @private
- * @category Function
- * @param {Function} fn The function to curry.
- * @return {Function} The curried function.
- */
-
-
-function _curry3(fn) {
-  return function f3(a, b, c) {
-    switch (arguments.length) {
-      case 0:
-        return f3;
-      case 1:
-        return _isPlaceholder(a) ? f3 : _curry2(function (_b, _c) {
-          return fn(a, _b, _c);
-        });
-      case 2:
-        return _isPlaceholder(a) && _isPlaceholder(b) ? f3 : _isPlaceholder(a) ? _curry2(function (_a, _c) {
-          return fn(_a, b, _c);
-        }) : _isPlaceholder(b) ? _curry2(function (_b, _c) {
-          return fn(a, _b, _c);
-        }) : _curry1(function (_c) {
-          return fn(a, b, _c);
-        });
-      default:
-        return _isPlaceholder(a) && _isPlaceholder(b) && _isPlaceholder(c) ? f3 : _isPlaceholder(a) && _isPlaceholder(b) ? _curry2(function (_a, _b) {
-          return fn(_a, _b, c);
-        }) : _isPlaceholder(a) && _isPlaceholder(c) ? _curry2(function (_a, _c) {
-          return fn(_a, b, _c);
-        }) : _isPlaceholder(b) && _isPlaceholder(c) ? _curry2(function (_b, _c) {
-          return fn(a, _b, _c);
-        }) : _isPlaceholder(a) ? _curry1(function (_a) {
-          return fn(_a, b, c);
-        }) : _isPlaceholder(b) ? _curry1(function (_b) {
-          return fn(a, _b, c);
-        }) : _isPlaceholder(c) ? _curry1(function (_c) {
-          return fn(a, b, _c);
-        }) : fn(a, b, c);
-    }
-  };
-}
-module.exports = _curry3;
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports) {
-
-function _isObject(x) {
-  return Object.prototype.toString.call(x) === '[object Object]';
-}
-module.exports = _isObject;
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var _curry3 = /*#__PURE__*/__webpack_require__(6);
-
-var _has = /*#__PURE__*/__webpack_require__(9);
-
-/**
- * Creates a new object with the own properties of the two provided objects. If
- * a key exists in both objects, the provided function is applied to the key
- * and the values associated with the key in each object, with the result being
- * used as the value associated with the key in the returned object.
+ * Creates a new object with the own properties of the first object merged with
+ * the own properties of the second object. If a key exists in both objects:
+ * - and both values are objects, the two values will be recursively merged
+ * - otherwise the value from the first object will be used.
  *
  * @func
  * @memberOf R
- * @since v0.19.0
+ * @since v0.24.0
  * @category Object
- * @sig ((String, a, a) -> a) -> {a} -> {a} -> {a}
- * @param {Function} fn
- * @param {Object} l
- * @param {Object} r
+ * @sig {a} -> {a} -> {a}
+ * @param {Object} lObj
+ * @param {Object} rObj
  * @return {Object}
- * @see R.mergeDeepWithKey, R.merge, R.mergeWith
+ * @see R.merge, R.mergeDeepRight, R.mergeDeepWith, R.mergeDeepWithKey
  * @example
  *
- *      let concatValues = (k, l, r) => k == 'values' ? R.concat(l, r) : r
- *      R.mergeWithKey(concatValues,
- *                     { a: true, thing: 'foo', values: [10, 20] },
- *                     { b: true, thing: 'bar', values: [15, 35] });
- *      //=> { a: true, b: true, thing: 'bar', values: [10, 20, 15, 35] }
- * @symb R.mergeWithKey(f, { x: 1, y: 2 }, { y: 5, z: 3 }) = { x: 1, y: f('y', 2, 5), z: 3 }
+ *      R.mergeDeepLeft({ name: 'fred', age: 10, contact: { email: 'moo@example.com' }},
+ *                      { age: 40, contact: { email: 'baa@example.com' }});
+ *      //=> { name: 'fred', age: 10, contact: { email: 'moo@example.com' }}
  */
-
-
-var mergeWithKey = /*#__PURE__*/_curry3(function mergeWithKey(fn, l, r) {
-  var result = {};
-  var k;
-
-  for (k in l) {
-    if (_has(k, l)) {
-      result[k] = _has(k, r) ? fn(k, l[k], r[k]) : l[k];
-    }
-  }
-
-  for (k in r) {
-    if (_has(k, r) && !_has(k, result)) {
-      result[k] = r[k];
-    }
-  }
-
-  return result;
+var mergeDeepLeft_mergeDeepLeft = /*#__PURE__*/_curry2_curry2(function mergeDeepLeft(lObj, rObj) {
+  return es_mergeDeepWithKey(function (k, lVal, rVal) {
+    return lVal;
+  }, lObj, rObj);
 });
-module.exports = mergeWithKey;
+/* harmony default export */ var es_mergeDeepLeft = (mergeDeepLeft_mergeDeepLeft);
+// CONCATENATED MODULE: ./src/modules/exposed/demo.js
+var demo_createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-/***/ }),
-/* 9 */
-/***/ (function(module, exports) {
+function demo_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _has(prop, obj) {
-  return Object.prototype.hasOwnProperty.call(obj, prop);
-}
-module.exports = _has;
+
+
+var demo_DEFAULT_OPTS = { name: 'bemo' };
+var demo_unsupportedEmo = function unsupportedEmo() {
+  document.body.innerHTML = 'Unsupported Emo!';
+};
+var demo_supportedEmo = function supportedEmo(emoPayload) {
+  var Emo = emoPayload.default ? emoPayload.default : emoPayload;
+  var emo = new Emo();
+  document.body.innerHTML = emo;
+};
+var demo_store = {};
+
+var demo_Demo = function () {
+  function Demo() {
+    var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+    demo_classCallCheck(this, Demo);
+
+    this.opts = es_mergeDeepLeft(opts, demo_DEFAULT_OPTS);
+    this.name = 'Demo';
+  }
+
+  demo_createClass(Demo, [{
+    key: 'setBase',
+    value: function setBase(basePath) {
+      // eslint-disable-next-line
+      __webpack_require__.p = basePath;
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var Emo = Demo.extract(this.opts.name);
+
+      if (Emo) {
+        demo_supportedEmo(Emo);
+      } else {
+        if (this.opts.name === 'bemo') {
+          __webpack_require__.e(/* import() | demo.bemo */ 1).then(__webpack_require__.bind(null, 0)).then(demo_supportedEmo).catch(demo_unsupportedEmo);
+        } else if (this.opts.name === 'chemo') {
+          __webpack_require__.e(/* import() | demo.chemo */ 2).then(__webpack_require__.bind(null, 2)).then(demo_supportedEmo).catch(demo_unsupportedEmo);
+        } else {
+          demo_unsupportedEmo();
+        }
+      }
+      document.body.innerHTML = 'Loading emo...';
+    }
+  }, {
+    key: 'toString',
+    value: function toString() {
+      return this.name;
+    }
+  }], [{
+    key: 'inject',
+    value: function inject(thing) {
+      if (thing != null) {
+        demo_store[thing] = thing;
+      }
+    }
+  }, {
+    key: 'extract',
+    value: function extract(thing) {
+      if (thing != null) {
+        return demo_store[thing];
+      }
+    }
+  }]);
+
+  return Demo;
+}();
+
+/* harmony default export */ var demo = __webpack_exports__["default"] = (demo_Demo);
 
 /***/ })
-/******/ ])["default"];
+
+/******/ })["default"];
 });
