@@ -1,4 +1,4 @@
-import mergeDeepRight from 'ramda/src/mergeDeepLeft'
+import mergeDeepLeft from 'ramda/src/mergeDeepLeft'
 
 const DEFAULT_OPTS = { name: 'bemo' }
 const unsupportedEmo = () => { document.body.innerHTML = 'Unsupported Emo!' }
@@ -11,7 +11,7 @@ const store = {}
 
 export default class Demo {
   constructor (opts = {}) {
-    this.opts = mergeDeepRight(opts, DEFAULT_OPTS)
+    this.opts = mergeDeepLeft(opts, DEFAULT_OPTS)
     this.name = 'Demo'
   }
 
